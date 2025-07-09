@@ -1,0 +1,7 @@
+No terminal conectado no Docker: 
+
+Para rodar um Contener
+
+docker run docker(Aqui é a iamgem)/whalesay(sub Imagem) cowsay(Passa Mensagem) Aqui_Mensagem
+
+-> docker run docker/whalesay cowsay Hello_Word
