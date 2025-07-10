@@ -5,3 +5,106 @@ Para rodar um Contener
 docker run docker(Aqui é a iamgem)/whalesay(sub Imagem) cowsay(Passa Mensagem) Aqui_Mensagem
 
 -> docker run docker/whalesay cowsay Hello_Word
+
+Container X Imagem: 
+
+Uma imagem é o "Projeto", onde estão todas as estruções, é um arquivo Dockerfile que conte as configurações de um projeto, que podemos chamar de imagem
+
+Pelo o outro lado o Container é onde roda alguma imagem, pega as instruções do arquivo Dockerfile e execulta ou seja ele exulta uma sere de passos definos em uma imagem para excultar aqule projeto. Container roda abase de uma imagem.
+Por meio de uma unica imagem posso ter Containers que pode rodar mais de uma unica vez ou varais vezes. 
+
+--------------------
+Onde encontrar uma Imagem e Hospedala. 
+Vamos achar no Repositório do Docker: https://hub.docker.com
+
+Para rodar uma imagem é docker run e o nome dela. 
+
+docker run -it NomeImagem
+-> Vai rodar sem parar -> -it é um comado de interação
+
+--------------------
+Verificando Container 
+
+-> Para ver quais Containers estão rodando: 
+docker ps ou docker container ls
+
+-> Para ver quais Containers já rodaram ou todos os Container:
+docker ps -a (Comando mais antigo)
+ou 
+docker container ls -a (Comando mais novo)
+
+--------------------
+Executar Container com Interação
+Exemplo para rodar node: 
+
+docker run -it node
+
+para para é só dá Ctrl C duas Vezes ->  Ctrl + c + c
+
+------------------------------------------------------------
+Container X VM (Virtual Machine)
+Container: 
+É uma aplicação que serve para determinado fim, não possui sistema operacional, seu tamanho é alguns mbs. Resolve poblema rodando Aplicações especificas
+
+VM (Virtual Machine): Possui sistema operacional(SO), seu tamanho é gbs. É um SO compleso 
+Uma vantagem de um /container é um Backp de forma economida de espaço e muito mais facil e posso excultar diversas verções
+----------------------------------------
+Executar Container em Backgraund: 
+É o que vamos usar grande maioria das vezes. 
+Ele fica rodando e fica em segundo plano deixando o meu terminal livres 
+flag -d
+Vamos usar o exemplo Nginx
+docker run nginx
+Para parar se o Ctrl + c + c Não funcioanr -> docker stop NAME(docker ps para ver o NAMES)
+
+docker run -d nginx -> Ele vai ser excultado sem ouclpar o terminal
+------------------------------------------------------------
+EXPOR PORTAS: 
+O Containers é issolado e não tem conexõa com nada fora deles, ou seja Precisamos abrir uma porta a flag é -p
+Uma é a porta que vou expor do container e a outra que mu pc vai usar para acessar a porta exportas EX:
+-p 80:80 
+OBS: A porta tem que existir no Container
+EX01: docker run -d -p 80:80 nginx
+EX02: docker run -d -p 300:80 nginx -> A porta que vai primeiro é a que vai ser exposta no meu PC depois dos dois pontos (:) É a porta que quero recber do Container
+--------------------
+Parando Containers: 
+Desta forma estamos liberando recursos que estão sendo gastos pelo mesmo
+--------------------
+O ID pode ser só o incio de uma IC Completo EX: 
+7b347f954ab44 -> Id Completo
+7b3 -> Id só o incio
+--------------------
+Inciciando Container
+Comando: 
+docker start mais_o_Id -> Caso seja nescessario usar um container que já existre mas está parado
+OBS: run sempre vai criar um novo
+
+--------------------
+Definer nome do Cantainer
+flag --name
+Se colocar ele vem um nome aleatório 
+Ex: docker run -d -p 80:80 nginx
+
+inica o Container(docker run) deixa em segundo plano (-d) define a porta (-p 80:80) dá o nome (--name Aqui_Nome) e de onde veio a imagem (Ex: nginx)
+
+-> docker run -d -p 80:80 --name Sites_em_Nginx nginx
+--------------------
+Verificando os Logs
+Aqui vmaos os logs ou seja, tudo o que rodou neste Container
+EX: docker logs id
+
+--------------------
+Removendo Containers
+docker rm id  -> Para remover Containers parados
+
+docker rm id -f ->  Para remover Containers que estão rodando
+
+OBS: Pode usar o nome no lugar do Id
+
+------------------------------------------------------------------------------------------------------------------------
+Quero fazer um ataque de negação de serviço (DoS) ou Ataque de Negação de Serviço Distribuído (DDoS) e Verificar os Logs do Container que recebel o Ataque
+
+
+
+
+
