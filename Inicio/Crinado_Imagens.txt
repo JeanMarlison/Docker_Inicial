@@ -1,1 +1,191 @@
+O que são Imagnes
+
+São oriondas de Arquivos uqe progrmamos, ou seja elas vão ser o guai dos nossos Containers, com uma serie de instruções
+Ex: Imagem Base, Diretório Base, Comandos a Serem execultados, porta de liberação e etc. 
+Ao rodar um Cotainer baseado em Imagem, as instuções serão executados em Camadas.
+EX: Se eu mudar a 4° Linha, só será excultado novamenta dá 4° linha para baixo, pelo motivo do kache da imagem.
+O nome de uma imagem por conversão é Dockerfile
+Imagnescom / Barras e outro nome não são oficiais
+
+--------------------
+Como Escolher uma Boa Imagem. 
+https://hub.docker.com
+É o site oficce porem qualquer pessoa pode subir uma imagem, logo recomendasse o uso de Imagens Oficiais, numero de Downloads, quantiodade de Estrelas e Recomendação
+Na Descrição da imagem explica como usar. EX:
+docker run -d -p 80:80 --name meu_apache httdp
+
+--------------------
+Criar uma Imagem
+O nome de uma imagem por conversão é Dockerfile
+
+Chaves mais comuns de achar em uma Imagem:
+
+FROM: Imagem base se tiver; 
+WORKDI: Diretório da Aplicação; 
+EXPOSE: Porta da Aplicação; 
+COPY: Quais Arquivos Precisam ser copiados;
+
+------------------------------------------------------------
+No Visual Studio Code, vai ser usado o Noite
+------------------------------------------------------------
+No terminal digitar: 
+
+npm init -y   -> Vai criar o package.json, onde vamos poder instalar as nossa dependecias
+npm install express  -> Framework as aplicações no Navegador, ai ele vai criar uma sere  de coias 
+
+---
+
+Vou Criar um arquivo app.js  -> Principal Arquivo, ele vai chamar as dependecias.
+--
+Vai no Arquivo app.js:
+--
+const express = require('express')  -> Aqui vai chamar nosso Framework
+const app = express()  -> Aqui via iniciar a express
+const port = 3000  -> Porta da Aplicação, onde vou expor a porta da imagem. Onde vamos expor a porta de um Container ai sim ter acesso a aplicação.
+ 
+app.get('/', (req, res) => {
+  res.send('Olá minha imagem')
+})   -> Rota de Get, onde vai a acessar a '/' da nossa aplicação e vai gera uma Requisição ou resposta. O que o usario vai ver como resposta de Sucesso
+
+app.listen(pot, () => {
+  console.log(`Execultando na porta: ${port}`)
+})  -> Isso via indicar a porta que ele está escultando, isso é uma função anonima, isso vai aprecer no terminal e nos logs
+
+---
+No terminal> node app.js
+Isso é só para ver se está funcionado e poder ver no navegador local do seu pc
+---
+Todo esse processo foi para criar uma mim aplicação e a gora vamos criar uma imagem.
+Na Rais do vs code, vou criar um arquivo Dockerfile, que é o arquivo da iamgem. 
+--
+No Arquivo Dockerfile: 
+
+FROM node
+
+WORKDI /app
+ 
+COPY package*.json . (pode ser também /app)
+
+RUN npm install  -> Ele vai instalar o nosso projeto para rodar nossa aplicação
+
+COPY . .    ->  Aqui fala para copiar tudo de app.js para o meu contianer
+
+EXPOSE 3000
+
+CMD["node","app.js"]  -> Aqui vai iniciar a aplicação
+
+
+OBS: Cada comando acima é uma camanda e caso eu atere só a porta como está tudo no kacher ele bai só execultar aparti da aplicação
+
+
+--------------------
+Executando uma Imagem
+docker build diretório_da_Imagem
+
+docker reun nome_Imagem  -> Para execultar a imagem.
+
+No terminal: 
+docker build .
+docker ps  -> Para ver o Id
+docker run -d -p 300:300 id_Da_imagem
+OBS: Usar os comandos de Doker
+
+--------------------
+Alterando uma Imagem
+OBS: Toda Alterção deve fazer o `docker build .` pois o Docker entede como uma nova Imagem e não como alteração.
+No Terminal: 
+
+docker stop NumeroDoContainerID
+
+docker build .
+docker run -d -p 300:300 --name novoNoid2 Novo_id_Da_imagem 
+--------------------
+Camadas das Imagens
+
+As imagnes no Docker são dividas em Camadas(Layers)
+--------------------
+Download de Imagens
+docker pull nomeImagem
+Ex: 
+docker pull python
+--------------------
+Aprender mais sobres os Comandos
+comando --help
+Ex: 
+docker run --help
+--------------------
+Múltiplas Aplicações, mesmo container
+
+Pode incializar vários containers com a mesma imagem
+Aplicação funcionarão em Paralelo
+basta clocar portas diferentes para cada uma, e rodar no modo detached;
+
+docker run -d -p 300:300 --name novoNoid2 mesmo_id_Da_imagem 
+docker run -d -p 400:300 --name novoNoid3 mesmo_id_Da_imagem
+docker run -d -p 500:300 --name novoNoid4 mesmo_id_Da_imagem 
+
+
+OBS: Todas são aplicações distintas mas usando os mesmo recursos
+
+--------------------
+docker image para ver as imagens já criadas--------------------
+--------------------
+Alterando o nome da Imagem e Teg
+
+docker tag nome:tag
+
+docker tag O_ID_Imagem nomeNovo
+
+Para colocar a verão: 
+
+docker tag O_ID_Imagem nomeNovo:versãoOUteg
+---
+Baixar: 
+docker pull nomeNovo:versãoOUteg
+--------------------
+Inciar imagem com um nome
+Vamos inicar uma imagem já com nome
+flag -t
+nome:tag
+docker buld -t nome_Imagem:teg_da_Imagem .
+--------------------
+Comando Start interativo 
+docker start -i nomeImagem 
+--------------------
+Removendo Imagens 
+docker rmi Nome_Ou_ID_Imagem
+
+Para forçar: 
+
+docker rmi -f Nome_Ou_ID_Imagem
+------------------------------------------------------------
+Removendo Imagens, Contains e Netowrks (Tudo o que não estã sendo usado)
+
+docker system prune
+
+--------------------
+Remover Contains após utilizar o container
+flag --rm
+docker run --rm cotainer
+
+docker stop id_Container
+--------------------
+Copiando Arquivo de um Containers
+
+docker cp 
+
+Pode copiar de um arquivo de um diretório para um container ou ao contrario
+
+
+
+
+
+
+
+
+
+
+
+
+
 
