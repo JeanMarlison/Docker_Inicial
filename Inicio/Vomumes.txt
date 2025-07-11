@@ -1,0 +1,15 @@
+O que são Volumes:
+Prática de persistir dados em aplicações e não depender de Containeres;
+Todos dados criados por Container é salvo nele, quando o contrainer é removido perdmeos os dados;
+Então precimos dos volumes para gerenciar os dados e também conseguir fazer bacukups de forma mais simples
+
+Ou seja salvar dados que doram passados ou criados dentro de um container
+--------------------
+Tipos de Volumes são 3
+
+1° Anônimos (anonymous):, criado pela flag -v, porém com nome aleattório. 
+2° Nomeados (named): São volumes nomeados, podemos nos referir a estes facilmenete e saber para que são ultilizadso no nosso ambiente
+3° Bind Mountes: Uma forma de Salvar dados na nossa máquina, sem o gerenciamento do Docker, informamos um diretorio para este fim;
+
+--------------------
+
