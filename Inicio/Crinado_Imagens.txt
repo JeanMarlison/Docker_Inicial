@@ -175,17 +175,53 @@ Copiando Arquivo de um Containers
 docker cp 
 
 Pode copiar de um arquivo de um diretório para um container ou ao contrario
+------------------------------------------------------------
+ANALISE DE CONTAINERS:
+--------------------
+Verificando informações de Processamento
 
+docker top Nome_Container
+Vai aprecer: Quando foi Inciado, ID do processo, Descrição do Comando CMD
 
+--------------------
+Verificar dados de um Container
 
+Aqui vamos entender como o Container está configurado, vai aprecer inforações de: 
+ID, data de Criação, Imagem e muito mias. 
+docker inspect Nome_Container
 
+--------------------
+Verificar Processamento 
 
+PAra verificar os processos que estão sendo execultados em um container
+docker stats
+Aqui vamos ter acesso ao andamento do processamento e memória gasto pelo mesmo. 
 
+--------------------
+Autenticação no Docker Hub
+https://hub.docker.com
+Para entrar pelo terminal: docker login
+Passa Usuário e Senha
+--------------------
+Logout do Docker Hub
 
+Para remover a conexão entrea máquina e o Docker Hub
+docker logout
 
+--------------------
+Enviar Imagem para o Docker Hub
+docker push Nome_Imagem
+Tem que ter um Repositorio criado no Docker Hub
 
+--------------------
+Enviar uma atualização de uma Imagem
+--------------------
 
+Baixar e ultilizando a Imagem
 
+docker pull Nome_Imagem
+
+docker run Nome_Imagem
 
 
 
