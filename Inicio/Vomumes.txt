@@ -12,4 +12,74 @@ Tipos de Volumes são 3
 3° Bind Mountes: Uma forma de Salvar dados na nossa máquina, sem o gerenciamento do Docker, informamos um diretorio para este fim;
 
 --------------------
+Criando um arquivo para teste. 
+Vai ser no VS Code Studio. 
+
+Arquivo no VS -> Dockerfile:
+
+FROM php:8-apache
+
+WORKDIR /var/www/html
+
+COPY . .
+
+EXPORSE 80
+
+RUN chown -R www-data:www-data var/www
+-----
+Arquivo no VS -> index.php:
+! + Tab
+-----
+Arquivo no VS -> process.php
+----- Vou pear o projeto já feito de php
+--------------------------------------------------
+1° Anônimos (anonymous):, criado pela flag -v, porém com nome aleattório.
+docker run -v/data
+docker  volume ls
+O nome vai ser aleatorio 
+--------------------
+2° Nomeados (named): São volumes nomeados, podemos nos referir a estes facilmenete e saber para que são ultilizadso no nosso ambiente
+
+docker run -v nomeVolume:/data
+
+OBS: :/ Odiretorio onde vamos salver que tem que ser conpativel com o da imagem, onde os docs da imagem estão.
+EX: docker run -d -p80:80 --name testePHP -v phpvolume:/camino/pasta/NomeDaPasta
+--------------------
+3° Bind Mountes: Uma forma de Salvar dados na nossa máquina, sem o gerenciamento do Docker, informamos um diretorio para este fim;
+
+docker run dir -v Caminho/Dapasta/Onde/Vai/Ser/Salvo/MeuPC:/Caminho/Pasta/Vem/Do/Docker
+--------
+Atualização do Projeto com Bind Mount
+
+docker volumeserve apenas para volumes, mas para atualizaçoes em tempo real do projeto
+
+--------------------------------------------------
+Criar um volume
+docker volume create NomeDoVolume
+
+--------------------
+
+Lista todos os Volumes
+
+docker volume ls
+OBS: Bind Mountes, bão vai ser listado
+
+--------------------
+docker volume inspect NomeVolume
+----
+Remover 
+docker volume rm nome
+
+----------
+Remover Volumes não Utilizados
+docker volume prune 
+
+
+
+
+
+
+
+
+
 
