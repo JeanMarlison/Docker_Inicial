@@ -1,0 +1,9 @@
+Com Objetivo de Conectar um Contaier a outro.
+Rede no Docker: 
+É uma forma de gerencia a conexão do Docker com outros plataforma ou até por outros containers
+As Networks / Redes são criadas separadas do Containes, como os volumes
+-----
+Tipos de Conexão:
+1° Externa: Conexão com uma API de um servidor remoto
+2° Com Host: A maquina que execulta o docker
+3° Entre Containers
