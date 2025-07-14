@@ -1,0 +1,26 @@
+YAML
+O que é:
+É uma linguagem de serialização
+Usada para arquivos de configuração,vamos usar aqui para o Docker Compose
+A Extensão é yml ou yaml
+---
+Vamos criar nosso Arquivo YAML
+
+O arquivo .yaml geralmente possui chaves e valores;
+Que é de onde vamos retirar as configurações do nosso sistema;
+Para definir uma chave apenas inserimos o nome dela, em seguida
+colocamos dois pontos e depois valor;
+Vamos criar nosso primeiro arquivo YAML!
+---
+Espaçamento e indentação
+
+O fim de uma linha indica o fim de uma instrução, não há ponto e vírgula;
+A indentação deve conter um ou mais espaços, e não devemos utilizar
+tab;
+E cada uma define um novo bloco;
+○ espaço é obrigatório após a declaração da chave;
+---
+Dados Yaml
+
+
+
