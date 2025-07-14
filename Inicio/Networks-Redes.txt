@@ -7,3 +7,41 @@ Tipos de Conexão:
 1° Externa: Conexão com uma API de um servidor remoto
 2° Com Host: A maquina que execulta o docker
 3° Entre Containers
+----
+Tipo de redes do Docker
+Bridge: Mais comum e defaul do Doker, ultilizado quand containers precisam se conectar.
+Host: Permit a conexão entre um container a máquina que está o hosteando o Doncker
+Macvlan:
+none:
+plugins:
+----
+Listando Redes: 
+docker network ls
+Algumas redes já podem está criadas.
+----
+Para criar uma rede 
+docker create network nomeRede
+----
+Removendo redes
+docker  network rm nomeRede
+----
+Removendo Rede em Massa 
+docker network prune
+------------------------------------------
+Instalando Postman
+Serve para desenvolviemto de APIs
+https://www.postman.com/
+-----
+Conexão Externa
+---
+Conexão entre Containres
+---
+Conectando Container
+docker network connect aRede oContainer
+---
+desconectar Container
+docker network diconnect aRede oContainer
+---
+Inspecionado Redes 
+docker network inspect NomeRede
+
