@@ -1,0 +1,83 @@
+Docker Compose uma ferramenta para rodar múltiplos contianes
+Multiplos builds e runs com só um  comando
+---
+Instalar o Doker Composse
+---
+Criando nosso arquivo de Compose
+
+Primeiramente vamos criar um arquivo chamado docker-compose.yml na raiz do projeto;
+Este arquivo vai coordenar os containers e imagens, e possui algumas chaves muito utilizadas;
+version: versão do Compose;
+services: Containers/serviços que vão rodar nessa aplicação;
+volumes: Possível adição de volumes;
+---
+No CS Code: -> Criar doc : docker-compose.yaml
+Espeficica os comandos dentro do arquivo.
+---
+Rodar Compase
+
+docker compose up
+
+Para parar no terminal ctrl + c
+
+---
+
+Rodando o Compose em background
+Pode ser execultado modo detcached
+flag -d
+vai rodar em background
+
+para ver a execulção com: docker ps
+
+EX: 
+
+ocker compose up -d
+---
+Parando o Compose
+Para parar:
+docker compose down
+
+Para ver dados que estão em background:
+docker ps
+
+---
+
+Variáveis de ambiente no Compose
+
+Variáveis de ambiente
+Podemos definir variáveis de ambiente para o Docker Compose; 
+Para isso vamos definir um arquivo base em env_file; 
+As variáveis podem ser chamadas pela sintaxe: ${VARIAVEL}
+Esta técnica é útil quando o dado a ser inserido é sensível/não pode ser compartilhado, como uma senha;
+
+--
+a extenção é .env
+
+---
+Redes no Compose
+
+A Rede basíca já vem.
+Podemos isolar as redes e criar novas com chaves
+
+Nos servições ainda dentor do Arquivo devo falar qual rede deve se conectar 
+E essa redes tem que serem criadas.
+---
+Criando o Compose do nosso projeto
+
+
+---
+Build de imagens no Compose
+Vantagens: 
+
+---
+Volume bind mount no Compose
+Vantagens: 
+As atualizações em tempo real dos arquivos
+---
+Verificando serviços do Compose
+
+docker-compose ps
+
+Resulmo dos seerviçções quem sobem com o compose
+---
+Conclusão da seção
